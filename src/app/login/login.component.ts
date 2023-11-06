@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ export class LoginComponent {
 
   loginForm: FormGroup;
 
-  constructor() {
+
+  constructor(private router:Router) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
@@ -23,7 +25,12 @@ export class LoginComponent {
       const password = this.loginForm.get('password')?.value;
       console.log(email);
       console.log(password);
-      // Perform your login logic here
+      if (email === 'user@example.com' && password === 'password123') {
+        localStorage.setItem('authToken', 'yourAuthTokenHere');
+        this.router.navigate(['/home']);
+      } else {
+       
+      }
     }
   }
 
