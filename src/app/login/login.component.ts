@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
 
   loginForm: FormGroup;
-  
+
   constructor() {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -21,8 +21,8 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const email = this.loginForm.get('email')?.value;
       const password = this.loginForm.get('password')?.value;
-console.log(email);
-console.log(password)
+      console.log(email);
+      console.log(password);
       // Perform your login logic here
     }
   }
