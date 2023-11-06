@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,9 @@ import { LoginComponent } from './login/login.component';
     BrowserAnimationsModule,
     StyleClassModule,
     MenubarModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
