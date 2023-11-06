@@ -8,8 +8,19 @@ import { MenuItem } from 'primeng/api';
 })
 export class AppComponent {
   title = 'zue stiching studio';
-
   items: MenuItem[] | undefined;
+  isAuthenticated: boolean;
+
+  constructor() {
+    // Check if the user is authenticated using localStorage or another method
+    const authToken = localStorage.getItem('authToken');
+    if(authToken){
+      this.isAuthenticated=true ;
+    }else{
+      this.isAuthenticated=false;
+    }
+    // Set isAuthenticated to true if an authToken is found
+  }
 
     ngOnInit() {
         this.items = [

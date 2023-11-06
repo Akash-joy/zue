@@ -1,5 +1,5 @@
-<div class="card">
-  <p-menubar [model]="items">
+<div class="card" *ngIf="isAuthenticated">
+  <p-menubar [model]="items" >
       <ng-template pTemplate="start">
           <img src="assets/sewing.png" height="40" class="mr-2" />
           
