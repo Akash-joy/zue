@@ -22,7 +22,6 @@ export class AppComponent {
               label: 'Work',
               icon: 'pi pi-fw pi-pencil',
               routerLink: '/work',
-              disabled: true
             },
             {
                 label: 'About',
