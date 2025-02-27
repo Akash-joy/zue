@@ -3,7 +3,7 @@ import { CanActivateFn, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 
 
-export const authserviceGuard: CanActivateFn = (route, state) => { debugger
+export const authserviceGuard: CanActivateFn = (route, state) => {
   const router = new Router(); // Create Router instance
   const messageService = inject(MessageService); // Inject PrimeNG Message Service
 
