@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { authserviceGuard } from './authservice.guard';
+import { AdminpageComponent } from './adminpage/adminpage.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'work', component: WorkComponent},
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  {path:'login', component: LoginComponent }
+  {path:'login', component: LoginComponent },
+  {path: 'userAdmin', component: AdminpageComponent, canActivate: [authserviceGuard]}
 ];
 
 @NgModule({

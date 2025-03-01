@@ -1,7 +1,7 @@
 <div class="card">
   <p-menubar [model]="items">
       <ng-template pTemplate="start">
-          <img src="assets/sewing.png" height="40" class="mr-2" />
+          <img src="assets/sewing.png" height="40" class="mr-2" (click)="onTripleClick()"/>
       </ng-template>
       <ng-template pTemplate="end">
           <!-- This part is empty in your code -->

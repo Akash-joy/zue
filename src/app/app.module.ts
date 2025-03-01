@@ -13,6 +13,9 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
+import { AdminpageComponent } from './adminpage/adminpage.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,8 @@ import { MessageService } from 'primeng/api';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    AdminpageComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { MessageService } from 'primeng/api';
     StyleClassModule,
     MenubarModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    FormsModule,
+    InputTextModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

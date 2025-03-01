@@ -4,12 +4,14 @@ import { MessageService } from 'primeng/api';
 
 
 export const authserviceGuard: CanActivateFn = (route, state) => {
-  const router = new Router(); // Create Router instance
-  const messageService = inject(MessageService); // Inject PrimeNG Message Service
+  const router = inject(Router);
+  const username = localStorage.getItem('username');
+  const password = localStorage.getItem('password');
 
-  messageService.add({ severity: 'warn', summary: 'Access Denied', detail: 'This page is currently disabled!' });
-  setTimeout(() => {
-    router.navigate(['/home']); // ✅ Redirect to Home Page
-  }, 500); // Small delay to show toast
-  return false; // Disable the route
+  if (username === 'ZueStichingStudio' && password === 'varsha123') {
+    return true; // Allow navigation
+  } else {
+    router.navigate(['/login']); // Redirect to login if not authorized
+    return false;
+  } 
 };
