@@ -43,7 +43,7 @@ export class AppComponent {
 
   onTripleClick(): void {
     this.clicks++;
-    if (this.clicks === 4) { debugger
+    if (this.clicks === 4) { 
       const username = localStorage.getItem('username');
       const password = localStorage.getItem('password');
       if (username && password) {
