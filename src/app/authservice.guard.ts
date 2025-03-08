@@ -13,5 +13,5 @@ export const authserviceGuard: CanActivateFn = (route, state) => {
   } else {
     router.navigate(['/login']); // Redirect to login if not authorized
     return false;
-  } 
+  }
 };

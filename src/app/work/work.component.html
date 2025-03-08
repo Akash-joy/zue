@@ -1,66 +1,56 @@
-
-<div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
-    <div class="grid">
-        <div class="col-12 md:col-6 lg:col-3">
-            <div class="surface-card shadow-2 p-3 border-round">
-                <img src="assets\WhatsApp Image 2023-11-05 at 12.10.08_9b0380ca.jpg" alt="" width="300px" height="300px">
-                <!-- <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">Orders</span>
-                        <div class="text-900 font-medium text-xl">152</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width:2.5rem;height:2.5rem">
-                        <i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
-                    </div>
-                </div>-->
-                <span class="text-green-500 font-medium">bridal </span>
-                <span class="text-500">blouse</span> 
-            </div>
-        </div>
-        <!-- <div class="col-12 md:col-6 lg:col-3">
-            <div class="surface-card shadow-2 p-3 border-round">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">Revenue</span>
-                        <div class="text-900 font-medium text-xl">$2.100</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-orange-100 border-round" style="width:2.5rem;height:2.5rem">
-                        <i class="pi pi-map-marker text-orange-500 text-xl"></i>
-                    </div>
-                </div>
-                <span class="text-green-500 font-medium">%52+ </span>
-                <span class="text-500">since last week</span>
-            </div>
-        </div>
-        <div class="col-12 md:col-6 lg:col-3">
-            <div class="surface-card shadow-2 p-3 border-round">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">Customers</span>
-                        <div class="text-900 font-medium text-xl">28441</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-cyan-100 border-round" style="width:2.5rem;height:2.5rem">
-                        <i class="pi pi-inbox text-cyan-500 text-xl"></i>
-                    </div>
-                </div>
-                <span class="text-green-500 font-medium">520  </span>
-                <span class="text-500">newly registered</span>
-            </div>
-        </div>
-        <div class="col-12 md:col-6 lg:col-3">
-            <div class="surface-card shadow-2 p-3 border-round">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">Comments</span>
-                        <div class="text-900 font-medium text-xl">152 Unread</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-purple-100 border-round" style="width:2.5rem;height:2.5rem">
-                        <i class="pi pi-comment text-purple-500 text-xl"></i>
-                    </div>
-                </div>
-                <span class="text-green-500 font-medium">85 </span>
-                <span class="text-500">responded</span>
-            </div>
-        </div> -->
+  <div class="grid p-fluid mt-4" [formGroup]="workForm" >
+    <div class="col-12 md:col-6 lg:col-3">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input type="text" pInputText placeholder="Customer Name" formControlName="customer_name" (change)="addTask()">
+      </div>
     </div>
+    <div class="col-12 md:col-6 lg:col-3">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+        <input type="text" pInputText placeholder="Phone Number" formControlName="phone_number" (change)="addTask()">
+      </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-3">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-briefcase"></i></span>
+        <input  type="text" pInputText placeholder="Work" formControlName="work" (change)="addTask()">
+      </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-3">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-clock"></i></span>
+        <p-calendar formControlName="estimated_date"  dateFormat="dd-mm-yy" (click)="addTask()"></p-calendar>
+      </div>
+    </div>
+    <div class="col-12 ">
+    <textarea  rows="5" cols="30" placeholder="Description" pInputTextarea formControlName="description" (change)="addTask()"></textarea>
+    </div>
+  </div>
+
+  <div class="card">
+    <p-table [value]="taskList.tasks" >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Customer Name</th>
+                <th>Work</th>
+                <th>Estimated Date</th>
+                <th>View</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-tasks>
+            <tr  [ngClass]="{
+              'bg-blue-200': tasks.work_status.id === 1,
+              'bg-teal-100': tasks.work_status.id === 2,
+              'bg-yellow-100': tasks.work_status.id === 3
+            }">
+                <td>{{ tasks.customer_name }}</td>
+                <td>{{ tasks.work }}</td>
+                <td>{{ tasks.estimated_date  | date : 'dd/MM/yyyy'}}</td>
+                <td><p-button icon="pi pi-eye" (click)="showDetails(tasks)" [rounded]="true" [text]="true" severity="danger " />
+                </td>
+              </tr>
+        </ng-template>
+    </p-table>
 </div>
+

@@ -14,8 +14,19 @@ import { LoginComponent } from './login/login.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminpageComponent } from './adminpage/adminpage.component';
+import { FileUploadModule } from 'primeng/fileupload';
+import { DropdownModule } from 'primeng/dropdown';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TableModule } from 'primeng/table';
+import { InplaceModule } from 'primeng/inplace';
+import { WorkFullDetailComponent } from './work/work-full-detail/work-full-detail.component';
+import { DialogModule } from 'primeng/dialog';
+import { ChipModule } from 'primeng/chip';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,20 +35,32 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
     AboutComponent,
     ContactComponent,
     LoginComponent,
-    AdminpageComponent
+    AdminpageComponent,
+    WorkFullDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     StyleClassModule,
     MenubarModule,
     ButtonModule,
     ToastModule,
     FormsModule,
-    InputTextModule
+    FileUploadModule,
+    InputTextModule,
+    DropdownModule,
+    CalendarModule,
+    InputTextareaModule,
+    TableModule,
+    InplaceModule,
+    DialogModule,
+    ChipModule,
+    SelectButtonModule,
+    DynamicDialogModule
   ],
-  providers: [MessageService],
+  providers: [MessageService, DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

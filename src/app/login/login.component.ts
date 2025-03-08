@@ -16,7 +16,7 @@ export class LoginComponent {
     if ( this.username === 'ZueStichingStudio' && this.password === 'varsha123') {
       localStorage.setItem('username', this.username);
       localStorage.setItem('password', this.password);
-      this.router.navigate(['/userAdmin']);
+      this.router.navigate(['/work']);
     }
   }
 }

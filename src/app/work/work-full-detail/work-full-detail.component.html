@@ -1,0 +1,52 @@
+<div class="card" *ngIf="dataReady">
+  <div class="grid mt-3" [formGroup]="WorkDetailsForm">
+    <div class="field col-12">
+      <span class="p-float-label">
+        <input type="text" pInputText formControlName="customer_name" (change)="updateWorkDetails('customer_name')" />
+        <label for="inputtext">Customer Name</label>
+      </span>
+    </div>
+    <div class="field col-12">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="phone_number" (change)="updateWorkDetails('phone_number')">
+        <label for="inputtext">Phone Number</label>
+      </span>
+    </div>
+    <div class="field col-12">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="work" (change)="updateWorkDetails('work')">
+        <label for="inputtext">Work</label>
+      </span>
+    </div>
+    <div class="field col-12">
+      <span class="p-float-label">
+        <small class="text-xs">Created Date</small><br>
+        <p-calendar formControlName="created_date" dateFormat="dd/mm/yy" (change)="updateWorkDetails('created_date')" />
+      </span>
+    </div>
+    <div class="field col-12">
+      <span class="p-float-label">
+        <small class="text-xs">Estimated Date</small><br>
+        <p-calendar formControlName="estimated_date" dateFormat="dd/mm/yy" (onSelect)="updateWorkDetails('estimated_date')" />
+      </span>
+    </div>
+    <div class="field col-12">
+      <span class="p-float-label">
+        <small class="text-xs">Work Status</small><br>
+        <p-selectButton
+        [options]="workStatus"
+        formControlName="work_status"
+        optionLabel="name"
+        (onChange)="workStatusUpdate($event)"
+        optionValue="id" />
+        <!-- <p-dropdown formControlName="work_status" [options]="workStatus" optionLabel="name" (onBlur)="updateWorkDetails('work_status',$event)"></p-dropdown> -->
+      </span>
+    </div>
+    <div class="field col-12">
+      <span class="p-float-label">
+        <small class="text-xs">Note</small><br>
+        <textarea id="float-input" rows="5" cols="30" formControlName="description" (change)="updateWorkDetails('description')" pInputTextarea></textarea>
+      </span>
+    </div>
+  </div>
+</div>

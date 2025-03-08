@@ -11,7 +11,7 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'work', component: WorkComponent},
+  { path: 'work', component: WorkComponent, canActivate: [authserviceGuard]},
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   {path:'login', component: LoginComponent },
