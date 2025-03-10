@@ -53,8 +53,8 @@ export class WorkComponent implements OnInit {
   }
   deleteTask(id: number) {
     this.workStatusService.deleteTask(id).subscribe({
-      next: (res) => {
-        this.taskList.tasks = this.taskList.tasks.filter((taskId: number) => taskId !== id);
+      next: () => {
+        this.taskList.tasks = this.taskList.tasks.filter((task: WorkDetails) => task.id !== id);
       }
     })
   }

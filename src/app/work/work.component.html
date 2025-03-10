@@ -48,6 +48,7 @@
                 <td>{{ tasks.work }}</td>
                 <td>{{ tasks.estimated_date  | date : 'dd/MM/yyyy'}}</td>
                 <td><p-button icon="pi pi-eye" (click)="showDetails(tasks)" [rounded]="true" [text]="true" severity="danger " />
+                  <p-button icon="pi pi-trash" [rounded]="true" (click)="deleteTask(tasks.id)" [text]="true" severity="danger " />
                 </td>
               </tr>
         </ng-template>
