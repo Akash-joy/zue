@@ -10,7 +10,3 @@ if (environment.production) {
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 
-const baseHref = environment.baseHref;
-const baseElement = document.createElement('base');
-baseElement.setAttribute('href', baseHref);
-document.head.appendChild(baseElement);
