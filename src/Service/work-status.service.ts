@@ -26,18 +26,18 @@ export class WorkStatusService {
   }
 
   getStates(): Observable<any> {
-    return this.http.get<any[]>(`${environment.baseUrl}/states/`);
+    return this.http.get<any[]>(`${environment.baseUrl}states/`);
   }
 
   createTask(taskData: any) {
-    return this.http.post(`${environment.baseUrl}/tasks/`, taskData);
+    return this.http.post(`${environment.baseUrl}tasks/`, taskData);
   }
 
   updateTask(id: number, data: any): Observable<WorkDetails> {
-    return this.http.patch<WorkDetails>(`${environment.baseUrl}/tasks/update/${id}/`, data);
+    return this.http.patch<WorkDetails>(`${environment.baseUrl}tasks/update/${id}/`, data);
   }
 
   deleteTask(id: number) {
-    return this.http.delete(`${environment.baseUrl}/tasks/${id}/`);
+    return this.http.delete(`${environment.baseUrl}tasks/${id}/`);
   }
 }
