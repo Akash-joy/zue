@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "/zue/",
+            "baseHref": "./",
             "outputPath": "dist/app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -52,7 +52,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/zue/"
+              "baseHref": "./"
             },
             "development": {
               "buildOptimizer": false,
